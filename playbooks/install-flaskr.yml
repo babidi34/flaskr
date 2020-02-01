@@ -1,0 +1,25 @@
+- name: Installation de flaskr
+  hosts: Ubuntu
+  remote_user: root
+
+  tasks:
+
+    - name: pip upgrade
+      shell: pip3 install --upgrade pip
+      args:
+        executable: /bin/bash
+
+    - name: pip install Flaskr
+      pip:
+        name: Flask
+        executable: pip3
+
+    - name: git clone project flaskr
+      git:
+        repo: https://github.com/silshack/flaskr.git
+        dest: /srv/flaskr
+
+    - name: python flaskr
+      shell: python3 /srv/flaskr/flaskr.py
+      args:
+        executable: /bin/bash

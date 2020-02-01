@@ -16,3 +16,13 @@
       apt:
         name: python3.6
         state: latest
+
+    - name: Installation de pip3
+      apt:
+        name: python3-pip
+        state: latest
+
+    - name: Installation de git
+      apt:
+        name: git
+        state: latest
